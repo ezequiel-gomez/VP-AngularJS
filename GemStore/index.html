@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html ng-app="gemStore">
 <head>
 	<title>GemStore</title>
@@ -6,9 +7,13 @@
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-controller="StoreController as store">
-	<h3>
-		{{store.product.name}}
-		<em>{{store.product.price}}</em>
-	</h3>
+	<div ng-hide="store.product.soldOut">
+		<h3>
+			{{store.product.name}}
+			<em>{{store.product.price}}</em>
+		</h3>
+	</div>
+
+	<button ng-show="store.product.canPurchase">Add to Cart</button>
 </body>
 </html>
